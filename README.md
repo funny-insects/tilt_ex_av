@@ -42,6 +42,60 @@ npm start
 
 Then open http://localhost:3000 in your browser.
 
+## Running with Docker Compose
+
+```bash
+docker-compose up
+```
+
+This will start both the API and frontend services in containers. Access the app at http://localhost:3000.
+
+## Running with Kubernetes
+
+### Prerequisites
+- [kind](https://kind.sigs.k8s.io/) installed
+- [kubectl](https://kubernetes.io/docs/tasks/tools/) installed
+
+### Setup
+
+1. Create a kind cluster:
+```bash
+kind create cluster -n tilt
+```
+
+2. Create the tilt namespace:
+```bash
+kubectl create namespace tilt
+```
+
+3. Apply the Kubernetes manifests:
+```bash
+kubectl apply -f k8s/
+```
+
+4. Access the services using port-forwarding or the service endpoints.
+
+## Running with Tilt
+
+[Tilt](https://tilt.dev/) provides a fast development workflow with live updates.
+
+### Prerequisites
+- [Tilt](https://docs.tilt.dev/install.html) installed
+- kind cluster running (see Kubernetes setup above)
+
+### Start Development
+
+```bash
+tilt up
+```
+
+This will:
+- Build and deploy both services
+- Set up live reload for code changes
+- Provide a web UI at http://localhost:10350
+
+Press `space` to open the Tilt UI in your browser, or press `q` to quit.
+
 ## API Endpoints
 
 | Method | Endpoint | Description |
