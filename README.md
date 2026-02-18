@@ -65,7 +65,7 @@ kind create cluster -n tilt
 
 2. Create the tilt namespace:
 ```bash
-kubectl create namespace tilt
+kubectl create namespace todo-app
 ```
 
 3. Apply the Kubernetes manifests:
