@@ -53,14 +53,14 @@ This will start both the API and frontend services in containers. Access the app
 ## Running with Kubernetes
 
 ### Prerequisites
-- [kind](https://kind.sigs.k8s.io/) installed
+- [k3d](https://k3d.io/) installed
 - [kubectl](https://kubernetes.io/docs/tasks/tools/) installed
 
 ### Setup
 
-1. Create a kind cluster:
+1. Create a k3d cluster with a local registry:
 ```bash
-kind create cluster -n tilt
+k3d cluster create dev-cluster --registry-create k3d-registry.localhost:5111
 ```
 
 2. Create the tilt namespace:
@@ -81,7 +81,7 @@ kubectl apply -f k8s/
 
 ### Prerequisites
 - [Tilt](https://docs.tilt.dev/install.html) installed
-- kind cluster running (see Kubernetes setup above)
+- k3d cluster running (see Kubernetes setup above)
 
 ### Start Development
 
